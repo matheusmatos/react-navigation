@@ -21,6 +21,7 @@ import {
   Divider,
   Text,
 } from 'react-native-paper';
+import { useKeepAwake } from 'expo-keep-awake';
 import {
   InitialState,
   NavigationContainer,
@@ -128,6 +129,8 @@ const NAVIGATION_PERSISTENCE_KEY = 'NAVIGATION_STATE';
 const THEME_PERSISTENCE_KEY = 'THEME_TYPE';
 
 export default function App() {
+  useKeepAwake();
+
   const [theme, setTheme] = React.useState(DefaultTheme);
 
   const [isReady, setIsReady] = React.useState(Platform.OS === 'web');
